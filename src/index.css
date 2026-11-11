@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-primary: #00305B;
+  --color-brand-overlay: rgba(0, 48, 91, 0.85);
+  --color-brand-grey: #F3F4F6;
+  --color-text-primary: #00305B;
+  --color-text-secondary: rgba(0, 48, 91, 0.7);
+  --color-neutral-background: #ffffff;
+
+  --font-primary: 'Raleway', sans-serif;
+  --font-secondary: 'Open Sans', sans-serif;
+
+  --tracking-widest-custom: 4px;
+  --tracking-ui: 0.1em;
+
+  --spacing-section: 8rem;
+  --spacing-section-lg: 12rem;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Base scroll animation */
+.animate-on-scroll-hidden {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+
+/* Directional variations */
+.animate-on-scroll-hidden.slide-left {
+  transform: translateX(-20px);
+}
+.animate-on-scroll-hidden.slide-right {
+  transform: translateX(20px);
+}
+.animate-on-scroll-hidden.zoom-out {
+  transform: scale(0.98) translateY(10px);
+}
+
+.animate-on-scroll-visible {
+  opacity: 1;
+  transform: translate(0, 0) scale(1);
+}
+
+/* Staggered Delays */
+.delay-100 {
+  transition-delay: 100ms;
+}
+.delay-200 {
+  transition-delay: 200ms;
+}
+.delay-300 {
+  transition-delay: 300ms;
+}
+.delay-400 {
+  transition-delay: 400ms;
+}
+.delay-500 {
+  transition-delay: 500ms;
+}
+.delay-700 {
+  transition-delay: 700ms;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.animate-fade-in {
+  animation: fadeIn 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes slideInRightFull {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+.animate-slide-right-full {
+  animation: slideInRightFull 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
